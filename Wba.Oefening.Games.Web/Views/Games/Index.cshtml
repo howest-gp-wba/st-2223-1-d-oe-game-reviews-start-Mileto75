@@ -1,7 +1,24 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model GamesIndexViewModel
 
-<h2>Index</h2>
+<div class="row">
+    <div class="col-lg-1 col-lg-5 mx-auto">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var game in Model.Games)
+                {
+                    <tr>
+                        <td>
+                            <a href="/games/ShowGame/@game.Id">@game.Text</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
