@@ -38,14 +38,32 @@ namespace Wba.Oefening.Games.Web.Controllers
             return View(gamesIndexViewModel);
         }
 
-        public IActionResult SearchByTitle(string title)
-        {
-            return View();
-        }
         public IActionResult ShowGame(int id)
         {
-            return Content("I should make a view + view model for this!");
+            //get the game
+            var game = _gameRepository
+                .GetGames()
+                .FirstOrDefault(g => g.Id == id);
+            //check if exists
+            if(game == null) 
+            {
+                return NotFound();
+            }
+            //fill the model
+            var gamesShowGameViewModel
+                = new GamesShowGameViewModel
+                {
+                    Id = game.Id,
+                    Text = game.Title,
+                    Rating = game.Rating,
+                    Developer = new BaseviewModel
+                    {
+                        Id = game.Developer.Id,
+                        Text = game.Developer.Name
+                    }
+                };
+            //pass to view
+            return View(gamesShowGameViewModel);
         }
-
     }
 }

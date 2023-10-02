@@ -1,0 +1,20 @@
+﻿@model GamesShowGameViewModel
+
+<div class="row">
+    <div class="col-lg-5 mx-auto">
+        <div class="card" style="width: 18rem;">
+            <!--tips: add .text-center,.text-right to the .card to change card text alignment-->
+            <img src="https://placehold.co/600x400" class="card-img-top" alt="@Model.Text">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Text</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    <a href="/developer/@Model.Developer.Id" class="card-link">@Model.Developer.Text</a>
+                </h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                Rating: @Model.Rating
+                </h6>
+                <a href="/Games/Index" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
