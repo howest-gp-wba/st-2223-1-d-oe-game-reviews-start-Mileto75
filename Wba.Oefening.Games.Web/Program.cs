@@ -22,6 +22,11 @@ app.UseAuthorization();
 
 
 app.MapControllerRoute(
+    name: "ShowDeveloper",
+    pattern: "/developers/{id}",
+    defaults: new {Controller = "Developers", Action = "ShowDevelopers" }
+    );
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 

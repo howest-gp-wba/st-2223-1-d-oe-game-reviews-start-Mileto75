@@ -8,12 +8,16 @@
             <div class="card-body">
                 <h5 class="card-title">@Model.Text</h5>
                 <h6 class="card-subtitle mb-2 text-muted">
-                    <a href="/developer/@Model.Developer.Id" class="card-link">@Model.Developer.Text</a>
+                    <a asp-controller="Developers"
+                       asp-action ="ShowDeveloper"
+                       asp-route-id ="@Model.Developer.Id"
+                       class="card-link">@Model.Developer.Text</a>
                 </h6>
                 <h6 class="card-subtitle mb-2 text-muted">
-                Rating: @Model.Rating
+                    Rating: <i class="icon-star"></i> icon-star
                 </h6>
-                <a href="/Games/Index" class="btn btn-primary">Back</a>
+                <a asp-controller="Games"
+                   asp-action="Index" class="btn btn-primary">Back</a>
             </div>
         </div>
     </div>
