@@ -1,1 +1,12 @@
-﻿
+﻿@model GamesIndexViewModel
+
+<div class="row">
+    @foreach(var game in Model.Games)
+    { 
+            <div class="col-lg-2 text-center border border-1 rounded rounded-2 m-1">
+                <a href="/games/@game.Id">
+                    @game.Value
+                </a>
+            </div>
+    }
+</div>
