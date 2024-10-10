@@ -25,45 +25,12 @@ namespace Wba.Oefening.Games.Web.Controllers
             //get the data
             //fill the model
             //pass tot the view
-            var gamesIndexViewModel = new GamesIndexViewModel
-            {
-                Games = _gameRepository
-                .GetGames()
-                .Select(g => new BaseviewModel 
-                {
-                    Id = g.Id,
-                    Text = g.Title
-                })
-            };
-            return View(gamesIndexViewModel);
+            return View();
         }
 
         public IActionResult ShowGame(int id)
         {
-            //get the game
-            var game = _gameRepository
-                .GetGames()
-                .FirstOrDefault(g => g.Id == id);
-            //check if exists
-            if(game == null) 
-            {
-                return NotFound();
-            }
-            //fill the model
-            var gamesShowGameViewModel
-                = new GamesShowGameViewModel
-                {
-                    Id = game.Id,
-                    Text = game.Title,
-                    Rating = game.Rating,
-                    Developer = new BaseviewModel
-                    {
-                        Id = game.Developer.Id,
-                        Text = game.Developer.Name
-                    }
-                };
-            //pass to view
-            return View(gamesShowGameViewModel);
+            return View();
         }
     }
 }
